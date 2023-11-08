@@ -1,10 +1,11 @@
 package com.sena.Repositorios;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.sena.Modelos.Perfil;
 
-import com.sena.Modelos.perfil;
-
-public interface perfilrepositorio extends JpaRepository<perfil, Integer> {
+@Repository
+public interface PerfilRepositorio extends JpaRepository<Perfil, Integer> {
 	
 
 }

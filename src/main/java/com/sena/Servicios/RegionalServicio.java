@@ -3,32 +3,32 @@ package com.sena.Servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.sena.Modelos.Regional;
+import com.sena.Repositorios.RegionalRepositorio;
 
-import com.sena.Modelos.perfil;
-import com.sena.Repositorios.perfilrepositorio;
-
+@Service
 public class RegionalServicio {
 	
 	@Autowired
-	private perfilrepositorio perfilrepositorio;
+	private RegionalRepositorio regionalRepositorio;
 	
-	public void Crear(perfil objperfil) {
-		perfilrepositorio.save(objperfil);
+	public void Crear(Regional regional) {
+		regionalRepositorio.save(regional);
 	}
 	
-	public List<perfil> listaperfiles(){
-		return perfilrepositorio.findAll();
+	public List<Regional> listaRegionales(){
+		return regionalRepositorio.findAll();
 	}
 	
-	public void eliminar(perfil objidperfil) {
-		perfilrepositorio.deleteById(objidperfil.getIdperfil());
+	public void eliminar(Regional regional) {
+		regionalRepositorio.deleteById(regional.getIdRegional());
 	}
 	
 	
-	public void actualizar(perfil objPerfil) {
-		perfilrepositorio.save(objPerfil);
+	public void actualizar(Regional regional) {
+		regionalRepositorio.save(regional);
 	}
-	
 	
 
 }

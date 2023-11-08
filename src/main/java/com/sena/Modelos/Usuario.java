@@ -1,7 +1,9 @@
 package com.sena.Modelos;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,28 +17,28 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idusuario;
+	private int idUsuario;
 	
-	@Column
+	@Column(name = "nombre_usuario")
 	private String nombres;
 	
-	@Column
+	@Column(name = "apellido_usuario")
 	private String ApellidosUsuario;
 	
-	@Column
-	private String tipodocumento;
+	@Column(name = "tipo_documento")
+	private String tipoDocumento;
 	
-	@Column
-	private String numerodocumento;
+	@Column(name = "numero_documento")
+	private String numeroDocumento;
 	
-	@Column
-	private String tipodesangre;
+	@Column(name = "tipo_sangre")
+	private String tipoSangre;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "perfil")
-	private perfil perfil;
+	private Perfil perfil;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "centro")
 	private Centro centro;
 	
@@ -44,84 +46,113 @@ public class Usuario {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Usuario(int idusuario, String nombres, String apellidosUsuario, String tipodocumento, String numerodocumento,
-			String tipodesangre, com.sena.Modelos.perfil perfil, Centro centro) {
-		super();
-		this.idusuario = idusuario;
+
+	public Usuario(int idUsuario, String nombres, String apellidosUsuario, String tipoDocumento, String numeroDocumento,
+			String tipoSangre, com.sena.Modelos.Perfil perfil, Centro centro) {
+		this.idUsuario = idUsuario;
 		this.nombres = nombres;
 		ApellidosUsuario = apellidosUsuario;
-		this.tipodocumento = tipodocumento;
-		this.numerodocumento = numerodocumento;
-		this.tipodesangre = tipodesangre;
+		this.tipoDocumento = tipoDocumento;
+		this.numeroDocumento = numeroDocumento;
+		this.tipoSangre = tipoSangre;
 		this.perfil = perfil;
 		this.centro = centro;
 	}
 
-	public int getIdusuario() {
-		return idusuario;
+
+	public int getIdUsuario() {
+		return idUsuario;
 	}
 
-	public void setIdusuario(int idusuario) {
-		this.idusuario = idusuario;
+
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
+
+
 
 	public String getNombres() {
 		return nombres;
 	}
 
+
+
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
+
+
 
 	public String getApellidosUsuario() {
 		return ApellidosUsuario;
 	}
 
+
+
 	public void setApellidosUsuario(String apellidosUsuario) {
 		ApellidosUsuario = apellidosUsuario;
 	}
 
-	public String getTipodocumento() {
-		return tipodocumento;
+
+
+	public String getTipoDocumento() {
+		return tipoDocumento;
 	}
 
-	public void setTipodocumento(String tipodocumento) {
-		this.tipodocumento = tipodocumento;
+
+
+	public void setTipoDocumento(String tipoDocumento) {
+		this.tipoDocumento = tipoDocumento;
 	}
 
-	public String getNumerodocumento() {
-		return numerodocumento;
+
+
+	public String getNumeroDocumento() {
+		return numeroDocumento;
 	}
 
-	public void setNumerodocumento(String numerodocumento) {
-		this.numerodocumento = numerodocumento;
+
+
+	public void setNumeroDocumento(String numeroDocumento) {
+		this.numeroDocumento = numeroDocumento;
 	}
 
-	public String getTipodesangre() {
-		return tipodesangre;
+
+
+	public String getTipoSangre() {
+		return tipoSangre;
 	}
 
-	public void setTipodesangre(String tipodesangre) {
-		this.tipodesangre = tipodesangre;
+
+
+	public void setTipoSangre(String tipoSangre) {
+		this.tipoSangre = tipoSangre;
 	}
 
-	public perfil getPerfil() {
+
+
+	public Perfil getPerfil() {
 		return perfil;
 	}
 
-	public void setPerfil(perfil perfil) {
+
+
+	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
+
+
 
 	public Centro getCentro() {
 		return centro;
 	}
 
+
+
 	public void setCentro(Centro centro) {
 		this.centro = centro;
 	}
-	
-	
-	
 
+	
 }

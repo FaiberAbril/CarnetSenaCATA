@@ -1,7 +1,9 @@
 package com.sena.Modelos;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -20,7 +22,7 @@ public class Centro {
 	@Column
 	private String nombreCentro;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "regional")
 	private Regional regional;
 	
@@ -29,10 +31,10 @@ public class Centro {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Centro(int idCentro, String nombreCentro) {
-		super();
+	public Centro(int idCentro, String nombreCentro, Regional regional) {
 		this.idCentro = idCentro;
 		this.nombreCentro = nombreCentro;
+		this.regional = regional;
 	}
 
 	public int getIdCentro() {

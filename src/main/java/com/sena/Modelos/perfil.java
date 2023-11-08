@@ -9,41 +9,41 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "perfil")
-public class perfil {
+public class Perfil {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idperfil;
+	private int idPerfil;
 	
 	@Column
-	private String perfil;
+	private String nombrePerfil;
 	
-	public perfil() {
-		// TODO Auto-generated constructor stub
+	public Perfil() {
+		
 	}
 
 		
-	public perfil(int idperfil, String perfil) {
+	public Perfil(int idPerfil, String nombrePerfil) {
 		super();
-		this.idperfil = idperfil;
-		this.perfil = perfil;
+		this.idPerfil = idPerfil;
+		this.nombrePerfil = nombrePerfil;
 	}
 
 
-	public int getIdperfil() {
-		return idperfil;
+	public int getIdPerfil() {
+		return idPerfil;
 	}
 
-	public void setIdperfil(int idperfil) {
-		this.idperfil = idperfil;
+	public void setIdPerfil(int idPerfil) {
+		this.idPerfil = idPerfil;
 	}
 
-	public String getPerfil() {
-		return perfil;
+	public String getNombrePerfil() {
+		return nombrePerfil;
 	}
 
-	public void setPerfil(String perfil) {
-		this.perfil = perfil;
+	public void setNombrePerfil(String nombrePerfil) {
+		this.nombrePerfil = nombrePerfil;
 	}
 	
 	
