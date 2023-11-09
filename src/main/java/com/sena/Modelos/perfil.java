@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "perfil")
-public class Perfil {
+public class perfil {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,12 +18,12 @@ public class Perfil {
 	@Column
 	private String nombrePerfil;
 	
-	public Perfil() {
+	public perfil() {
 		
 	}
 
 		
-	public Perfil(int idPerfil, String nombrePerfil) {
+	public perfil(int idPerfil, String nombrePerfil) {
 		super();
 		this.idPerfil = idPerfil;
 		this.nombrePerfil = nombrePerfil;
