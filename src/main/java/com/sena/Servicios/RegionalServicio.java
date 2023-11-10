@@ -13,7 +13,7 @@ public class RegionalServicio {
 	@Autowired
 	private RegionalRepositorio regionalRepositorio;
 	
-	public void Crear(Regional regional) {
+	public void crear(Regional regional) {
 		regionalRepositorio.save(regional);
 	}
 	
@@ -21,8 +21,8 @@ public class RegionalServicio {
 		return regionalRepositorio.findAll();
 	}
 	
-	public void eliminar(Regional regional) {
-		regionalRepositorio.deleteById(regional.getIdRegional());
+	public void eliminar(int idRegional) {
+		regionalRepositorio.deleteById(idRegional);
 	}
 	
 	
@@ -30,5 +30,8 @@ public class RegionalServicio {
 		regionalRepositorio.save(regional);
 	}
 	
+	public Regional buscarPorId(int idRegional) {
+		return regionalRepositorio.findById(idRegional).get();
+	}
 
 }

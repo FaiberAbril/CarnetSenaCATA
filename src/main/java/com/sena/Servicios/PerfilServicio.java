@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sena.Modelos.perfil;
+import com.sena.Modelos.Perfil;
 import com.sena.Repositorios.perfilrepositorio;
 
 
@@ -15,21 +15,25 @@ public class PerfilServicio {
 	@Autowired
 	private perfilrepositorio perfilRepositorio;
 	
-	public void Crear(perfil perfil) {
+	public void crear(Perfil perfil) {
 		perfilRepositorio.save(perfil);
 	}
 	
-	public List<perfil> listaRegionales(){
+	public List<Perfil> listaPerfiles(){
 		return perfilRepositorio.findAll();
 	}
 	
-	public void eliminar(perfil perfil) {
-		perfilRepositorio.deleteById(perfil.getIdPerfil());
+	public void eliminar(int idPerfil) {
+		perfilRepositorio.deleteById(idPerfil);
 	}
 	
 	
-	public void actualizar(perfil perfil) {
+	public void actualizar(Perfil perfil) {
 		perfilRepositorio.save(perfil);
+	}
+
+	public Perfil buscarPorId(int idPerfil) {
+		return perfilRepositorio.findById(idPerfil).get();
 	}
 
 }

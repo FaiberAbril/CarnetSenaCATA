@@ -36,7 +36,7 @@ public class Usuario {
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "perfil")
-	private perfil perfil;
+	private Perfil perfil;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "centro")
@@ -48,7 +48,7 @@ public class Usuario {
 
 
 	public Usuario(int idUsuario, String nombres, String apellidosUsuario, String tipoDocumento, String numeroDocumento,
-			String tipoSangre, perfil perfil, Centro centro) {
+			String tipoSangre, Perfil perfil, Centro centro) {
 		this.idUsuario = idUsuario;
 		this.nombres = nombres;
 		ApellidosUsuario = apellidosUsuario;
@@ -132,13 +132,13 @@ public class Usuario {
 
 
 
-	public perfil getPerfil() {
+	public Perfil getPerfil() {
 		return perfil;
 	}
 
 
 
-	public void setPerfil(perfil perfil) {
+	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
 

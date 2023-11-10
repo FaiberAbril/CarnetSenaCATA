@@ -14,7 +14,7 @@ public class CentroServicio {
   @Autowired
   private CentroRepositorio centroRepositorio;
 
-  public void Crear(Centro centro) {
+  public void crear(Centro centro) {
 		centroRepositorio.save(centro);
 	}
 	
@@ -22,13 +22,17 @@ public class CentroServicio {
 		return centroRepositorio.findAll();
 	}
 	
-	public void eliminar(Centro centro) {
-		centroRepositorio.deleteById(centro.getIdCentro());
+	public void eliminar(int idCentro) {
+		centroRepositorio.deleteById(idCentro);
 	}
 	
 	
 	public void actualizar(Centro centro) {
 		centroRepositorio.save(centro);
+	}
+
+	public Centro buscarPorId(int idCentro) {
+		return centroRepositorio.findById(idCentro).get();
 	}
 
 }

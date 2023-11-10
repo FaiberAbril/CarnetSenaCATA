@@ -21,13 +21,15 @@ public class UsuarioServicio {
     return usuarioRepositorio.findAll();
   }
 
-  public void eliminar(Usuario usuario){
-    usuarioRepositorio.deleteById(usuario.getIdUsuario());
+  public void eliminar(int idUsuario){
+    usuarioRepositorio.deleteById(idUsuario);
   }
 
   public void actualizar(Usuario usuario) {
     usuarioRepositorio.save(usuario);
   }
   
-
+  public Usuario buscarPorId(int idUSuario) {
+    return usuarioRepositorio.findById(idUSuario).get();
+  }
 }
