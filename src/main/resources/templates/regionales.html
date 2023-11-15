@@ -7,7 +7,47 @@
     <title>Regionales</title>
   </head>
   <body>
-    <h1>Regionales</h1>
+    <div class="container">
+      <h1>Regionales</h1>
+      <a th:href="@{/regional/crear}">
+        <button type="button" class="btn btn-outline-info">
+          CREAR REGIONAL
+        </button>
+      </a>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id de la Regional</th>
+            <th scope="col">Nombre de la Regional</th>
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="regional : ${listaRegionales}">
+            <td th:text="${regional.idRegional}"></td>
+            <td th:text="${regional.nombreRegional}">Mark</td>
+
+            <td class="d-flex justify-content-between">
+              <a
+                th:href="@{/regional/actualizar/{idRegional}(idRegional = ${regional.idRegional})}"
+              >
+                <button type="button" class="btn btn-outline-info">
+                  ACTUALIZAR
+                </button>
+              </a>
+              <a
+                th:href="@{/regional/eliminar/{idRegional}(idRegional = ${regional.idRegional})}"
+              >
+                <button type="button" class="btn btn-outline-danger">
+                  ELIMINAR
+                </button>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <script th:src="@{/js/bootstrap.min.js}"></script>
   </body>
