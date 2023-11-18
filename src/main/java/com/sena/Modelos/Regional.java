@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Regional {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idRegional;
 	
 	@Column

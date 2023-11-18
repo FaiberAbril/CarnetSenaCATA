@@ -16,14 +16,14 @@ import jakarta.persistence.Table;
 public class Centro {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idCentro;
 	
 	@Column
 	private String nombreCentro;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "regional")
+	@JoinColumn(name = "idRegional")
 	private Regional regional;
 	
 	
@@ -52,7 +52,13 @@ public class Centro {
 	public void setNombreCentro(String nombreCentro) {
 		this.nombreCentro = nombreCentro;
 	}
-	
-	
+
+	public Regional getRegional() {
+		return regional;
+	}
+
+	public void setRegional(Regional regional) {
+		this.regional = regional;
+	}
 
 }

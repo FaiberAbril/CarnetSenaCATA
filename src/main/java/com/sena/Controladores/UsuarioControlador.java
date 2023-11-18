@@ -41,7 +41,7 @@ public class UsuarioControlador {
     ModelAndView modelAndView = new ModelAndView("formCrearUsuario");
     modelAndView.addObject("objUsuario", new Usuario());
     modelAndView.addObject("listaCentros", centroServicio.listaCentros());
-    modelAndView.addObject("listaPerffiles", perfilServicio.listaPerfiles());
+    modelAndView.addObject("listaPerfiles", perfilServicio.listaPerfiles());
     return modelAndView;
 
   }
@@ -68,7 +68,7 @@ public class UsuarioControlador {
     ModelAndView modelAndView = new ModelAndView("formActualizarUsuario");
     modelAndView.addObject("objUsuario", usuarioServicio.buscarPorId(idUsuario));
     modelAndView.addObject("listaCentros", centroServicio.listaCentros());
-    modelAndView.addObject("listaPerffiles", perfilServicio.listaPerfiles());
+    modelAndView.addObject("listaPerfiles", perfilServicio.listaPerfiles());
     return modelAndView;
 
   }
