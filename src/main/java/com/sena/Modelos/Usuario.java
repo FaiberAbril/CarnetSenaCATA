@@ -16,14 +16,14 @@ import jakarta.persistence.Table;
 public class Usuario {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idUsuario;
 	
 	@Column(name = "nombre_usuario")
-	private String nombres;
+	private String nombresUsuario;
 	
 	@Column(name = "apellido_usuario")
-	private String ApellidosUsuario;
+	private String apellidosUsuario;
 	
 	@Column(name = "tipo_documento")
 	private String tipoDocumento;
@@ -35,11 +35,11 @@ public class Usuario {
 	private String tipoSangre;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "perfil")
+	@JoinColumn(name = "perfil_id")
 	private Perfil perfil;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "centro")
+	@JoinColumn(name = "centro_id")
 	private Centro centro;
 	
 	public Usuario() {
@@ -47,11 +47,11 @@ public class Usuario {
 	}
 
 
-	public Usuario(int idUsuario, String nombres, String apellidosUsuario, String tipoDocumento, String numeroDocumento,
+	public Usuario(int idUsuario, String nombresUsuario, String apellidosUsuario, String tipoDocumento, String numeroDocumento,
 			String tipoSangre, Perfil perfil, Centro centro) {
 		this.idUsuario = idUsuario;
-		this.nombres = nombres;
-		ApellidosUsuario = apellidosUsuario;
+		this.nombresUsuario = nombresUsuario;
+		this.apellidosUsuario = apellidosUsuario;
 		this.tipoDocumento = tipoDocumento;
 		this.numeroDocumento = numeroDocumento;
 		this.tipoSangre = tipoSangre;
@@ -72,26 +72,26 @@ public class Usuario {
 
 
 
-	public String getNombres() {
-		return nombres;
+	public String getNombresUsuario() {
+		return nombresUsuario;
 	}
 
 
 
-	public void setNombres(String nombres) {
-		this.nombres = nombres;
+	public void setNombresUsuario(String nombresUsuario) {
+		this.nombresUsuario = nombresUsuario;
 	}
 
 
 
 	public String getApellidosUsuario() {
-		return ApellidosUsuario;
+		return apellidosUsuario;
 	}
 
 
 
 	public void setApellidosUsuario(String apellidosUsuario) {
-		ApellidosUsuario = apellidosUsuario;
+		this.apellidosUsuario = apellidosUsuario;
 	}
 
 

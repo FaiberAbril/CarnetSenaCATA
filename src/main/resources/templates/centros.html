@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <title>Centros</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Centros</h1>
+      <a th:href="@{/centro/crear}">
+        <button type="button" class="btn btn-outline-info">CREAR CENTRO</button>
+      </a>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id del Centro</th>
+            <th scope="col">Nombre del Centro</th>
+            <th scope="col">Regional</th>
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="centro: ${listaCentros}">
+            <td th:text="${centro.idCentro}"></td>
+            <td th:text="${centro.nombreCentro}"></td>
+            <td th:text="${centro.regional.nombreRegional}"></td>
+
+            <td class="d-flex justify-content-between">
+              <a
+                th:href="@{/centro/actualizar/{idCentro}(idCentro = ${centro.idCentro})}"
+              >
+                <button type="button" class="btn btn-outline-info">
+                  ACTUALIZAR
+                </button>
+              </a>
+              <a
+                th:href="@{/centro/eliminar/{idCentro}(idCentro = ${centro.idCentro})}"
+              >
+                <button type="button" class="btn btn-outline-danger">
+                  ELIMINAR
+                </button>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+  </body>
+</html>

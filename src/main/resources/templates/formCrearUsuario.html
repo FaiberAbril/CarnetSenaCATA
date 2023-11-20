@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <title>Usuario</title>
+  </head>
+  <body>
+    <div class="constainer">
+      <h1 class="text-center">Crear Usuario</h1>
+      <form
+        th:action="@{/usuario/guardar}"
+        method="post"
+        th:object="${objUsuario}"
+      >
+        <br />
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-6">
+              <label
+                for="nombresUsuario"
+                class="form-label d-flex justify-content-center"
+              >
+                Nombres del usuario</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{nombresUsuario}"
+                id="nombresUsuario"
+                name="nombresUsuario"
+                required
+              />
+            </div>
+            <div class="col-6">
+              <label
+                for="apellidosUsuario"
+                class="form-label d-flex justify-content-center"
+              >
+                Apellidos del usuario</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{apellidosUsuario}"
+                id="apellidosUsuario"
+                name="apellidosUsuario"
+                required
+              />
+            </div>
+            <div class="col-6">
+              <label
+                for="tipoDocumento"
+                class="form-label d-flex justify-content-center"
+              >
+                Tipo de documento</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{tipoDocumento}"
+                id="tipoDocumento"
+                name="tipoDocumento"
+                required
+              />
+            </div>
+
+            <div class="col-6">
+              <label
+                for="numeroDocumento"
+                class="form-label d-flex justify-content-center"
+              >
+                Número de documento</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{numeroDocumento}"
+                id="numeroDocumento"
+                name="numeroDocumento"
+                required
+              />
+            </div>
+            <div class="col-6">
+              <label
+                for="tipoSangre"
+                class="form-label d-flex justify-content-center"
+              >
+                Tipo de sangre</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                th:field="*{tipoSangre}"
+                id="tipoSangre"
+                name="tipoSangre"
+                required
+              />
+            </div>
+
+            <div class="col-4">
+              <label
+                for="perfil"
+                class="form-label d-flex justify-content-center"
+              >
+                Perfil</label
+              >
+              <select
+                class="form-select"
+                name="perfil"
+                id="perfil"
+                th:field="*{perfil}"
+                required
+              >
+                <option
+                  th:each=" perfil: ${listaPerfiles}"
+                  th:value="${perfil.idPerfil}"
+                  th:text="${perfil.nombrePerfil}"
+                ></option>
+              </select>
+            </div>
+            <div class="col-4">
+              <label
+                for="centro"
+                class="form-label d-flex justify-content-center"
+              >
+                Centro</label
+              >
+              <select
+                class="form-select"
+                name="centro"
+                id="centro"
+                th:field="*{centro}"
+                required
+              >
+                <option
+                  th:each=" centro: ${listaCentros}"
+                  th:value="${centro.idCentro}"
+                  th:text="${centro.nombreCentro}"
+                ></option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="text-center">
+          <button class="btn btn-primary" type="submit">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script src="" th:src="@{/js/bootstrap/jquery.js}"></script>
+  </body>
+</html>

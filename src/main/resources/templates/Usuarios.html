@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+    <title>Usuarios</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Usuarios</h1>
+      <a th:href="@{/usuario/crear}">
+        <button type="button" class="btn btn-outline-info">
+          CREAR USUARIO
+        </button>
+      </a>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Id del usuario</th>
+            <th scope="col">Nombres del usuario</th>
+            <th scope="col">Apellidos del usuario</th>
+            <th scope="col">Tipo de documento</th>
+            <th scope="col">Número documento</th>
+            <th scope="col">Tipo de sangre</th>
+            <th scope="col">Perfil</th>
+            <th scope="col">Centro</th>
+            <th scope="col" class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="usuario : ${listaUsuarios}">
+            <td th:text="${usuario.idUsuario}"></td>
+            <td th:text="${usuario.nombresUsuario}"></td>
+            <td th:text="${usuario.apellidosUsuario}"></td>
+            <td th:text="${usuario.tipoDocumento}"></td>
+            <td th:text="${usuario.numeroDocumento}"></td>
+            <td th:text="${usuario.tipoSangre}"></td>
+            <td th:text="${usuario.perfil.nombrePerfil}"></td>
+            <td th:text="${usuario.centro.nombreCentro}"></td>
+
+            <td class="d-flex justify-content-between">
+              <a
+                th:href="@{/usuario/actualizar/{idUsuario}(idUsuario = ${usuario.idUsuario})}"
+              >
+                <button type="button" class="btn btn-outline-info">
+                  ACTUALIZAR
+                </button>
+              </a>
+              <a
+                th:href="@{/usuario/eliminar/{idUsuario}(idUsuario = ${usuario.idUsuario})}"
+              >
+                <button type="button" class="btn btn-outline-danger">
+                  ELIMINAR
+                </button>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+  </body>
+</html>
