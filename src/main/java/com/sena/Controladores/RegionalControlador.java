@@ -21,7 +21,6 @@ public class RegionalControlador {
 
   @GetMapping("/lista") 
   public ModelAndView listarRegionales() {
-
     ModelAndView modelAndView = new ModelAndView("regionales");
     modelAndView.addObject("listaRegionales", regionalServicio.listaRegionales());
     return modelAndView;
@@ -30,7 +29,6 @@ public class RegionalControlador {
 
   @GetMapping("/crear")
   public ModelAndView crearRegional() {
-
     ModelAndView modelAndView = new ModelAndView("formCrearRegional");
     modelAndView.addObject("objRegional", new Regional());
     return modelAndView;
@@ -55,7 +53,6 @@ public class RegionalControlador {
 
   @GetMapping("/actualizar/{idRegional}")
   public ModelAndView actualizarRegional(@PathVariable("idRegional") int idRegional) {
-
     ModelAndView modelAndView = new ModelAndView("formActualizarRegional");
     modelAndView.addObject("objRegional", regionalServicio.buscarPorId(idRegional));
     return modelAndView;
@@ -64,7 +61,6 @@ public class RegionalControlador {
 
   @PostMapping("/guardarRegional")
   public String guardarRegionalActualizada(@ModelAttribute("objRegional") Regional regional) {
-
     regionalServicio.actualizar(regional);
     return "redirect:/regional/lista";
 
